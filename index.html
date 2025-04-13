@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Naveen Kumar G's AI-Powered Interactive Web Resume - AI Engineer">
+    <meta property="og:title" content="Naveen Kumar G - AI Engineer">
+    <meta property="og:description" content="Explore the AI-powered resume of Naveen Kumar G, an innovative AI Engineer specializing in machine learning, computer vision, and deep learning.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yourportfolio.com/og-image.jpg">
+    <title>Naveen Kumar G - AI Engineer | Resume</title>
+
+    <style>
+        :root {
+            /* AI-Themed Colors */
+            --hue: 200; /* Futuristic cyan */
+            --saturation: 40%;
+            --lightness-bg: 10%;
+            --lightness-card-bg: 15%;
+            --lightness-text: 95%;
+            --lightness-text-muted: 70%;
+            --lightness-accent: 60%;
+            --lightness-accent-hover: 70%;
+
+            --color-bg: hsl(var(--hue), var(--saturation), var(--lightness-bg));
+            --color-card-bg: hsla(var(--hue), calc(var(--saturation) - 10%), var(--lightness-card-bg), 0.7);
+            --color-text: hsl(var(--hue), 10%, var(--lightness-text));
+            --color-text-muted: hsl(var(--hue), 5%, var(--lightness-text-muted));
+            --color-heading: hsl(var(--hue), 20%, var(--lightness-text));
+            --color-accent: hsl(var(--hue), calc(var(--saturation) + 30%), var(--lightness-accent));
+            --color-accent-hover: hsl(var(--hue), calc(var(--saturation) + 40%), var(--lightness-accent-hover));
+            --color-border: hsla(var(--hue), 15%, var(--lightness-text), 0.2);
+            --color-shadow: hsla(var(--hue), 50%, 5%, 0.5);
+
+            /* Typography */
+            --font-primary: 'Orbitron', 'Inter', sans-serif; /* Futuristic font */
+            --font-secondary: 'Roboto Mono', monospace;
+            --font-size-base: 16px;
+            --line-height-base: 1.8;
+
+            /* Layout */
+            --spacing-unit: 1rem;
+            --container-width: 1000px;
+            --border-radius: 8px;
+
+            /* Transitions */
+            --transition-speed: 0.4s;
+            --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; font-size: var(--font-size-base); }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            background: var(--color-bg);
+            background-image: linear-gradient(135deg,
+                hsl(var(--hue), calc(var(--saturation) - 10%), calc(var(--lightness-bg) - 3%)),
+                var(--color-bg) 50%,
+                hsl(var(--hue), calc(var(--saturation) + 10%), calc(var(--lightness-bg) + 4%))
+            );
+            line-height: var(--line-height-base);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .resume-container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: calc(var(--spacing-unit) * 2) auto;
+            flex-grow: 1;
+            background: var(--color-card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--color-shadow);
+            padding: calc(var(--spacing-unit) * 3);
+            position: relative;
+        }
+
+        /* AI Badge */
+        .ai-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 10px hsla(var(--hue), 50%, 5%, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--color-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: calc(var(--spacing-unit) * 0.8);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 3.2rem);
+            color: var(--color-accent);
+            text-shadow: 0 0 10px hsla(var(--hue), 50%, 50%, 0.5);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2rem);
+            border-bottom: 3px solid var(--color-accent);
+            padding-bottom: calc(var(--spacing-unit) * 0.5);
+            display: inline-block;
+        }
+
+        h3 { font-size: 1.3rem; }
+        h4 { font-size: 1rem; color: var(--color-text-muted); font-weight: 400; }
+
+        p { margin-bottom: var(--spacing-unit); }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color var(--transition-speed) var(--transition-timing);
+        }
+        a:hover, a:focus {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: calc(var(--spacing-unit) * 1.8);
+            margin-bottom: var(--spacing-unit);
+        }
+        ul li::marker { color: var(--color-accent); }
+        li { margin-bottom: calc(var(--spacing-unit) * 0.6); }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: var(--color-border);
+            margin: calc(var(--spacing-unit) * 2.5) 0;
+        }
+
+        .date-range {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            padding-bottom: calc(var(--spacing-unit) * 2);
+            border-bottom: 1px solid var(--color-border);
+            position: relative;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            color: var(--color-heading);
+            font-family: var(--font-secondary);
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 0.6) calc(var(--spacing-unit) * 1.8);
+            font-size: 0.95rem;
+            margin-top: var(--spacing-unit);
+        }
+        .contact-info a, .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--color-text-muted);
+            transition: color var(--transition-speed) var(--transition-timing);
+        }
+        .contact-info a:hover, .contact-info a:focus {
+            color: var(--color-accent-hover);
+            text-decoration: none;
+        }
+        .contact-info .icon { color: var(--color-accent); font-size: 1.1rem; }
+
+        /* Experience & Education */
+        .resume-section article {
+            margin-bottom: calc(var(--spacing-unit) * 2.5);
+            padding: calc(var(--spacing-unit) * 1.2) 0 calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2);
+            border-left: 4px solid var(--color-border);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            position: relative;
+            transition: all var(--transition-speed) var(--transition-timing);
+        }
+        .resume-section article::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: calc(var(--spacing-unit) * 0.3);
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            border: 3px solid var(--color-bg);
+        }
+        .resume-section article:hover {
+            background: hsla(var(--hue), var(--saturation), calc(var(--lightness-card-bg) + 5%), 0.6);
+            border-left-color: var(--color-accent);
+            transform: translateX(8px);
+        }
+
+        /* Skills */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(var(--spacing-unit) * 1.2);
+        }
+        .skills-list li {
+            background: hsla(var(--hue), calc(var(--saturation) + 20%), calc(var(--lightness-accent) - 20%), 0.8);
+            color: var(--color-text);
+            padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit));
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all var(--transition-speed) var(--transition-timing);
+            animation: node-pulse 1.5s infinite alternate;
+        }
+        .skills-list li:hover {
+            background: var(--color-accent);
+            transform: translateY(-5px);
+            animation: none;
+        }
+        @keyframes node-pulse {
+            0% { box-shadow: 0 0 5px hsla(var(--hue), 50%, 50%, 0.3); }
+            100% { box-shadow: 0 0 10px hsla(var(--hue), 50%, 50%, 0.6); }
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }
+        .project-card {
+            background: hsla(var(--hue), var(--saturation), calc(var(--lightness-card-bg) + 8%), 0.8);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: calc(var(--spacing-unit) * 1.5);
+            transition: all var(--transition-speed) var(--transition-timing);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px var(--color-shadow);
+        }
+        .project-card h3 { color: var(--color-accent); font-size: 1.2rem; }
+        .project-card p { font-size: 0.95rem; color: var(--color-text-muted); }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2);
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            background: hsla(var(--hue), 5%, 5%, 0.3);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .resume-section article.reveal,
+        .skills-list li.reveal,
+        .project-card.reveal {
+            transition-delay: calc(var(--reveal-delay, 0) * 150ms);
+        }
+
+        /* Neural Network Canvas */
+        #neural-network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Print Styles */
+        @media print {
+            :root {
+                --color-bg: #ffffff;
+                --color-card-bg: #ffffff;
+                --color-text: #000000;
+                --color-text-muted: #333333;
+                --color-heading: #000000;
+                --color-accent: #005566;
+                --color-border: #cccccc;
+                --color-shadow: transparent;
+            }
+            body { background: none; display: block; min-height: auto; }
+            .resume-container {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border: none;
+                box-shadow: none;
+                background: none;
+            }
+            .ai-badge, #neural-network-canvas { display: none; }
+            .resume-section article { border-left: none; padding-left: 0; }
+            .resume-section article::before { display: none; }
+            .skills-list { flex-direction: column; }
+            .skills-list li { background: none; padding: 0; border: none; }
+            .skills-list li::before { content: "• "; color: var(--color-text); }
+            .projects-grid { grid-template-columns: 1fr; }
+            .site-footer { display: none; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+            .resume-container { width: 95%; padding: calc(var(--spacing-unit) * 2); }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.6rem; }
+        }
+        @media (max-width: 480px) {
+            html { font-size: 14px; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .resume-section article::before { width: 12px; height: 12px; left: -6px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <canvas id="neural-network-canvas"></canvas>
+        <header class="resume-header reveal">
+            <h1>Naveen Kumar G</h1>
+            <div class="job-title">AI Engineer</div>
+            <div class="contact-info">
+                <span aria-label="Location"><span class="icon">📍</span> KCT, Coimbatore</span>
+                <a href="tel:+919361953519" aria-label="Phone number: +91 93619 53519"><span class="icon">📞</span> +91 93619 53519</a>
+                <a href="mailto:naveeeen.a@gmail.com" aria-label="Email: naveeeen.a@gmail.com"><span class="icon">✉️</span> naveeeen.a@gmail.com</a>
+                <a href="https://reallygreatsite.com" target="_blank" rel="noopener noreferrer" aria-label="Portfolio"><span class="icon">🌐</span> Portfolio</a>
+                <a href="https://linkedin.com/in/naveenkumarg" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon">🔗</span> LinkedIn</a>
+                <a href="https://github.com/naveenkumarg" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><span class="icon">💻</span> GitHub</a>
+            </div>
+        </header>
+
+        <main>
+            <section id="summary" class="resume-section reveal">
+                <h2>Professional Summary</h2>
+                <p>Visionary AI Engineer with a B.E. in Electronics and Communication Engineering from Kumaraguru College of Technology. Mastermind behind innovative AI solutions, leveraging expertise in Python, machine learning, and deep learning to revolutionize industries. Proven leader in high-impact projects, from computer vision for defect detection to autonomous drone navigation. Passionate about harnessing AI to solve real-world challenges, I thrive in dynamic teams, delivering scalable, cutting-edge systems with precision and creativity.</p>
+            </section>
+
+            <hr>
+
+            <section id="experience" class="resume-section reveal">
+                <h2>Work Experience</h2>
+                <article class="reveal" style="--reveal-delay: 1;">
+                    <h3>Level-1 Member, AI & ML Division</h3>
+                    <h4>iQube - Coimbatore, India</h4>
+                    <div class="date-range">2024 - Present</div>
+                    <ul>
+                        <li>Engineered machine learning models for real-world applications, boosting performance by 25% through iterative optimization and cross-functional collaboration.</li>
+                        <li>Contributed to cutting-edge R&D in AI and ML, integrating advanced algorithms to enhance scalability and predictive accuracy.</li>
+                        <li>Streamlined data pipelines using Python and AWS, reducing processing times by 30% for team projects.</li>
+                    </ul>
+                </article>
+                <article class="reveal" style="--reveal-delay: 2;">
+                    <h3>Technical Lead</h3>
+                    <h4>Circuits and Systems Society @ IEEE KCT - Coimbatore, India</h4>
+                    <div class="date-range">2023 - Present</div>
+                    <ul>
+                        <li>Led a dynamic team in pioneering technical projects, fostering innovation in circuits, systems, and AI-driven solutions.</li>
+                        <li>Orchestrated workshops on embedded systems and ML, upskilling 50+ students in practical applications.</li>
+                        <li>Designed AI-enhanced prototypes, integrating sensors and algorithms for real-time data processing.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <hr>
+
+            <section id="education" class="resume-section reveal">
+                <h2>Education</h2>
+                <article class="reveal" style="--reveal-delay: 1;">
+                    <h3>B.E. in Electronics and Communication Engineering</h3>
+                    <h4>Kumaraguru College of Technology - Coimbatore, India</h4>
+                    <div class="date-range">2023 - 2027</div>
+                    <p>Specializing in AI, embedded systems, and signal processing, with hands-on projects in computer vision and machine learning.</p>
+                </article>
+            </section>
+
+            <hr>
+
+            <section id="skills" class="resume-section reveal">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li class="reveal" style="--reveal-delay: 1;">Python</li>
+                    <li class="reveal" style="--reveal-delay: 2;">Machine Learning</li>
+                    <li class="reveal" style="--reveal-delay: 3;">Deep Learning</li>
+                    <li class="reveal" style="--reveal-delay: 4;">Natural Language Processing</li>
+                    <li class="reveal" style="--reveal-delay: 5;">Computer Vision</li>
+                    <li class="reveal" style="--reveal-delay: 6;">AWS</li>
+                    <li class="reveal" style="--reveal-delay: 1;">Git & GitHub</li>
+                    <li class="reveal" style="--reveal-delay: 2;">Embedded Systems</li>
+                    <li class="reveal" style="--reveal-delay: 3;">C</li>
+                    <li class="reveal" style="--reveal-delay: 4;">YOLOv8</li>
+                    <li class="reveal" style="--reveal-delay: 5;">TensorFlow</li>
+                    <li class="reveal" style="--reveal-delay: 6;">PyTorch</li>
+                    <li class="reveal" style="--reveal-delay: 1;">Leadership</li>
+                    <li class="reveal" style="--reveal-delay: 2;">Team Collaboration</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section id="projects" class="resume-section reveal">
+                <h2>AI-Powered Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card reveal" style="--reveal-delay: 1;">
+                        <h3>Roller Defect Detection</h3>
+                        <p>Developed a computer vision system at WelVision using YOLOv8 to detect defects like dents and rust, improving quality control accuracy by 20%.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">Code</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" style="--reveal-delay: 2;">
+                        <h3>Aerothon 2025 - AI Drone Navigation</h3>
+                        <p>Led a team to build an AI-powered drone, integrating ML models for obstacle detection and navigation, achieving top-tier performance in competition.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Demo</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="certifications" class="resume-section reveal">
+                <h2>Certifications</h2>
+                <p>Actively pursuing certifications in AI, cloud computing, and advanced machine learning to stay at the forefront of technology.</p>
+            </section>
+
+            <hr>
+
+            <section id="languages" class="resume-section reveal">
+                <h2>Languages</h2>
+                <ul class="skills-list">
+                    <li class="reveal" style="--reveal-delay: 1;">English</li>
+                    <li class="reveal" style="--reveal-delay: 2;">Hindi</li>
+                    <li class="reveal" style="--reveal-delay: 3;">Japanese</li>
+                    <li class="reveal" style="--reveal-delay: 4;">Tamil</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>© <span id="current-year"></span> Naveen Kumar G. Engineered with AI, HTML, CSS, and JavaScript.</p>
+        <p>Last updated: April 12, 2025</p>
+    </footer>
+
+    <script>
+        // Footer Year
+        try {
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+        } catch (error) {
+            console.error('Error updating footer year:', error);
+        }
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Neural Network Animation
+        const canvas = document.getElementById('neural-network-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const nodes = [];
+        const numNodes = 20;
+        for (let i = 0; i < numNodes; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = 'hsla(var(--hue), 50%, 50%, 0.2)';
+            ctx.fillStyle = 'hsla(var(--hue), 50%, 50%, 0.5)';
+
+            nodes.forEach(node => {
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+                ctx.fill();
+
+                nodes.forEach(other => {
+                    const dist = Math.hypot(node.x - other.x, node.y - other.y);
+                    if (dist < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(node.x, node.y);
+                        ctx.lineTo(other.x, other.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Resize Canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        console.log("AI-Powered Resume Initialized. Innovate the Future!");
+    </script>
+</body>
+</html>
